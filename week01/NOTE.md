@@ -55,18 +55,22 @@ Java源码查看（网页版）：http://developer.classpath.org/doc/overview-su
 ![image-20201023105821069](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023105821069.png)
 
 ```java
-Stack<Integer> stack=new Stack<>();
-stack.push(1);
-stack.push(2);
-System.out.println(stack);
-System.out.println(stack.search(4));
+        Stack<Integer> stack=new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println(stack);   //[1, 2, 3]
+        System.out.println(stack.search(2));  //2
 
-stack.pop(1);
-stack.pop(3);   //抛出异常
-boolean isEmpty = stack.empty();
-Integer topElement = stack.peek();
-System.out.println(topElement);
-System.out.println("2的位置"+stack.search(2));
+        stack.pop();
+        stack.pop();
+        //stack.pop();   
+        boolean isEmpty = stack.empty();
+        Integer topElement = stack.peek();
+        System.out.println(topElement); //1
+        System.out.println(isEmpty);//false
+        System.out.println("3的位置"+stack.search(3));//3的位置-1
+        System.out.println("1的位置"+stack.search(1));//1的位置1
 ```
 
 栈从1开始计数，不在栈中的话search( )返回-1。
