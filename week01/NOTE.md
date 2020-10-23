@@ -26,7 +26,7 @@ O(n!) 阶层
 
 # 2020/10/22
 
-# 1. 数组、链表、跳表的基本实现和特性
+# 1.3 数组、链表、跳表的基本实现和特性
 
 ![image-20200926213014509](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20200926213014509.png)
 
@@ -39,4 +39,93 @@ O(n!) 阶层
 ![image-20201022141934751](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201022141934751.png)
 
 Java源码查看（网页版）：http://developer.classpath.org/doc/overview-summary.html
+
+# 1.4栈和队列
+
+## 1、双端队列  deque(Double-End Queue)
+
+![image-20201023091344012](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023091344012.png)
+
+![image-20201023091623634](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023091623634.png)
+
+## 2、栈 Stack
+
+![image-20201023105725577](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023105725577.png)
+
+![image-20201023105821069](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023105821069.png)
+
+```java
+Stack<Integer> stack=new Stack<>();
+stack.push(1);
+stack.push(2);
+System.out.println(stack);
+System.out.println(stack.search(4));
+
+stack.pop(1);
+stack.pop(3);   //抛出异常
+boolean isEmpty = stack.empty();
+Integer topElement = stack.peek();
+System.out.println(topElement);
+System.out.println("2的位置"+stack.search(2));
+```
+
+栈从1开始计数，不在栈中的话search( )返回-1。
+
+## 3、Queue<接口>
+
+![image-20201023110209890](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023110209890.png)
+
+![image-20201023110010205](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023110010205.png)
+
+![image-20201023194655221](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023194655221.png)
+
+```
+Queue<String> queue = new LinkedList<String>();
+queue.offer("one");
+queue.add("two");//IllegalStateException异常
+
+String pollElement1 = queue.poll();
+System.out.println(pollElement1);//one
+System.out.println(queue);//[two]
+
+String removeElement2 = queue.remove();
+System.out.println(removeElement2);//two
+System.out.println(queue);//[ ]
+
+String peekElement1 = queue.peek();
+System.out.println(peekElement1);//null
+System.out.println(queue);//[]
+String element1 = queue.element();
+System.out.println(element1);//异常，java.util.NoSuchElementException
+System.out.println(queue);//[]
+```
+
+
+
+## 4、Deque<接口>
+
+![image-20201023110359945](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023110359945.png)
+
+![image-20201023110422370](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023110422370.png)
+
+![image-20201023110646681](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023110646681.png)
+
+![image-20201023201426738](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023201426738.png)
+
+```
+        Deque<String> deque = new LinkedList<String>();
+        deque.push("a");
+        deque.push("b");
+        deque.push("c");
+        System.out.println(deque);//[c, b, a]
+
+        String str = deque.peek();
+        System.out.println(str);//c
+        System.out.println(deque);//[c, b, a]
+
+        while(deque.size()>0) {
+            System.out.println(deque.pop());//c->b->a
+        }
+        System.out.println(deque);//[ ]
+```
 
