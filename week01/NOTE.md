@@ -1,3 +1,5 @@
+
+
 学习笔记
 
 # 2020/10/21
@@ -118,9 +120,9 @@ System.out.println(queue);//[]
 
 ```
         Deque<String> deque = new LinkedList<String>();
-        deque.push("a");
-        deque.push("b");
-        deque.push("c");
+        deque.addFirst("a");
+        deque.addFirst("b");
+        deque.addLast("c");
         System.out.println(deque);//[c, b, a]
 
         String str = deque.peek();
@@ -133,3 +135,31 @@ System.out.println(queue);//[]
         System.out.println(deque);//[ ]
 ```
 
+```
+改写后：
+		Deque<String> deque = new LinkedList<String>();
+        deque.addFirst("a");
+        deque.addFirst("b");
+        deque.addLast("c");
+        System.out.println(deque);//[b, a, c]
+
+        String str = deque.peekLast();
+        String str1 = deque.peekFirst();
+        System.out.println(str);//c
+        System.out.println(str1);//b
+
+        while(deque.size()>0) {
+            System.out.println(deque.pollFirst());//b->a->c
+        }
+        System.out.println(deque);//[ ]
+```
+
+## 5、优先队列(Priority Queue)
+
+![image-20201023215227063](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023215227063.png)
+
+![image-20201023215510513](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023215510513.png)
+
+![image-20201023215523165](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023215523165.png)
+
+![image-20201023215853014](C:\Users\WXJ\AppData\Roaming\Typora\typora-user-images\image-20201023215853014.png)
